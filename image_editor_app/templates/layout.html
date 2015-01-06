@@ -5,33 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} - My Django Application</title>
     {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'content/buttons/buttons.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'content/site.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'content/menu.css' %}" />
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="{% static 'static/menu.js' %}"></script>
     <script src="{% static 'libs/modernizr-2.6.2.js' %}"></script>
 </head>
 
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="/" class="navbar-brand">Application name</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
+    
     <div class="container body-content">
+        <header id="header">
+            <p>JS ImageEditor</p>
+        </header>
+
+        <div id='cssmenu'>
+            <ul>
+               <li class='active'><a href='#'>Home</a></li>
+               <li><a href='#'>Products</a></li>
+               <li><a href='#'>Company</a></li>
+               <li><a href='#'>Contact</a></li>
+            </ul>
+        </div>
+
+        <content id = "content">
+          <a href="#" class="imageEditButton">negative</a>  
+          <a href="#" class="imageEditButton">blur</a>  
+        </content>
+
 {% block content %}{% endblock %}
-        <hr/>
-        <footer>
+        
+        <footer id="footer">
+            <hr/>
             <p>&copy; {{ year }} - My Django Application</p>
         </footer>
     </div>

@@ -1,6 +1,39 @@
-﻿body {
-    padding-top: 50px;
+﻿
+
+body {
     padding-bottom: 20px;
+}
+
+body {
+    background-image:url('http://luxfon.com/images/201203/luxfon.com_5020.jpg');
+    background-color:yellow;
+}
+
+#content {
+    border-radius: 5px;
+    margin:20px;border: 2px solid #AEECAA;
+    float:left;
+    margin-left: auto;
+    margin-right: auto;
+    width: 99.5%;
+    height: 1024px;
+    background-color: rgba(174, 236, 170, 0.3);
+}
+
+#footer {
+    color: white;
+    clear:both;
+    height: 50px;
+    padding: 10px;
+}
+
+#header p{
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 20px;
+    font-style: italic;
+    font-style: oblique;
+    font-weight: bold;
+    color: #AEECAA;
 }
 
 /* Set padding to keep content from hitting the edges */
