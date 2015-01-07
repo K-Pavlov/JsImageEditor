@@ -1,5 +1,26 @@
 {% extends "layout.html" %}
 
-{% block content %}
+{% load staticfiles %}
 
+{% block content %}
+<content id="content">
+    <div>
+        <a href="#" class="imageEditButton" id="negative-btn">Negative</a>
+        <a href="#" class="imageEditButton" id="blur-btn">Blur</a>
+        <a href="#" class="imageEditButton" id="gray-scale-btn">Gray scale</a>  
+    </div>
+    <div id="image-div">
+        <input type="file" id="image-upload"><br>
+        <hr />
+        <img id="uploaded-image" />
+    </div>
+</content>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'scripts/imageUpload.js' %}"></script>
+    <script src="{% static 'scripts/grayScale.js' %}"></script>
+    <script src="{% static 'scripts/blur.js' %}"></script>
+    <script src="{% static 'scripts/negative.js' %}"></script>
+    <script src="{% static 'scripts/init.js' %}"></script>
 {% endblock %}

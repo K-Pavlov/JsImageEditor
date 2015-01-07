@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'content/site.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'content/menu.css' %}" />
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-    <script src="{% static 'static/menu.js' %}"></script>
+    <script src="{% static 'scripts/menu.js' %}"></script>
     <script src="{% static 'libs/modernizr-2.6.2.js' %}"></script>
 </head>
 
@@ -28,11 +28,6 @@
                <li><a href='#'>Contact</a></li>
             </ul>
         </div>
-
-        <content id = "content">
-          <a href="#" class="imageEditButton">negative</a>  
-          <a href="#" class="imageEditButton">blur</a>  
-        </content>
 
 {% block content %}{% endblock %}
         
