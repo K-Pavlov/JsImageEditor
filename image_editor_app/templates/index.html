@@ -10,14 +10,18 @@
         <a href="#" class="imageEditButton" id="gray-scale-btn">Gray scale</a>  
     </div>
     <div id="image-div">
-        <input type="file" id="image-upload"><br>
+        <input type="file" id="image-upload" class="imageEditButton" style="display: none"><br>
+        <button id="file" class="imageEditButton">Upload</button>
         <hr />
         <img id="uploaded-image" />
+        <hr />
+        <a href="#" class="imageEditButton" id="donwload-button">Download</a>  
     </div>
 </content>
 {% endblock %}
 
 {% block scripts %}
+    <script src="{% static 'libs/FileSaver.js' %}"></script>
     <script src="{% static 'scripts/imageUpload.js' %}"></script>
     <script src="{% static 'scripts/grayScale.js' %}"></script>
     <script src="{% static 'scripts/blur.js' %}"></script>
