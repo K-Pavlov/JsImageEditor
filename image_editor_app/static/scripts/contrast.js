@@ -1,5 +1,5 @@
 ﻿/// <reference path="../libs/jquery-1.10.2.js" />
-function imageToGrayScale(image) {
+function addContrastToImage(image) {
     var canvas = document.createElement('canvas'),
         canvasContext = canvas.getContext('2d'),
         imageWidth = image.width,
@@ -16,10 +16,18 @@ function imageToGrayScale(image) {
     data = imagePixels.data;
 
     for (var i = 0; i < imagePixels.data.length; i += 4) {
-        luminocity = imagePixels.data[i] * 0.21 + imagePixels.data[i + 1] * 0.72 + imagePixels.data[i + 2] * 0.07;
-        imagePixels.data[i] = luminocity;
-        imagePixels.data[i + 1] = luminocity;
-        imagePixels.data[i + 2] = luminocity;
+        var contrast = 10;
+        var average = (data[i] + data[i + 1] + data[i + 2]) / 3;
+
+        if (average < 127) {
+            data[i] -= (data[i] / average) * contrast;
+            data[i + 1] -= (data[i + 1] / average) * contrast;
+            data[i + 2] -= (data[i + 2] / average) * contrast;
+        } else {
+            data[i] += (data[i] / average) * contrast;
+            data[i + 1] += (data[i + 1] / average) * contrast;
+            data[i + 2] += (data[i + 2] / average) * contrast;
+        }
     }
 
     canvasContext.putImageData(imagePixels, 0, 0);

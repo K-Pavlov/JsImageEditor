@@ -12,22 +12,16 @@ $(document).ready(function () {
     });
 
     var $grayScaleBtn = $('#gray-scale-btn');
-    $grayScaleBtn.click(function () {
-        var $imgUploaded = $('#uploaded-image');
-
-        $imgUploaded.ready(function () {
-            $imgUploaded.attr('src', imageToGrayScale($imgUploaded[0]));
-        })
-    });
+    addEventToButton($grayScaleBtn, imageToGrayScale);
 
     var $negativeBtn = $('#negative-btn');
-    $negativeBtn.click(function () {
-        var $imgUploaded = $('#uploaded-image');
+    addEventToButton($negativeBtn, imageToNegative);
 
-        $imgUploaded.ready(function () {
-            $imgUploaded.attr('src', imageToNegative($imgUploaded[0]));
-        })
-    });
+    var $sepiaButton= $('#sepia-btn');
+    addEventToButton($sepiaButton, imageToSepia);
+
+    var $contrastButton = $('#contrast-btn');
+    addEventToButton($contrastButton, addContrastToImage);
 
     var $downloadButton = $('#donwload-button');
     $downloadButton.click(function () {
@@ -61,4 +55,14 @@ $(document).ready(function () {
     $('#file').click(function () {
         $fileInput.click();
     }).show();
+
+    function addEventToButton($button, functionToExecute) {
+        $button.click(function () {
+            var $imgUploaded = $('#uploaded-image');
+
+            $imgUploaded.ready(function () {
+                $imgUploaded.attr('src', functionToExecute($imgUploaded[0]));
+            })
+        });
+    }
 });
